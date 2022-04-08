@@ -1,7 +1,14 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from 'react'
 
-// You can delete this file if you're not using it
+// Install and import all needed fonts and font-styles here from https://fontsource.org/
+// Run npm i @fontsource/[DESIRED_FONT]
+// import "@fontsource/[DESIRED_FONT]"; This defaults to 400 font-weight
+// For other font-weights import "@fontsource/[DESIRED_FONT]/[FW_NUMBER].css";
+
+import './src/style/style.css'
+import Layout from './src/components/Layout'
+
+
+export const wrapPageElement = ({ element, props }) => {
+    return <Layout {...props}>{element}</Layout>
+  }

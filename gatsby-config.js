@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `HQ Online - Gatsby Starter`,
+    description: `Deze starter is ontwikkeld door HQ Online.`,
+    author: `Jelmer Polman - HQ Online`,
+    siteUrl: `https://hq-online.nl/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -16,7 +16,17 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        formats: [`auto`, `webp`],
+        placeholder: `BLURRED`,
+        quality: 50,
+        breakpoints: [750, 1080, 1366, 1920],
+        backgroundColor: `transparent`,
+      }
+    },
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -31,6 +41,41 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        url: `https://server2.webdesignhq.shockmedia.nl/~gatsbystarter/graphql`,
+        schema: {
+          typePrefix: 'Wp',
+          perPage: 20,
+          requestConcurrency: 2,
+          previewRequestConcurrency: 2,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "[GTAG]",
+        ],
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: false,
+          respectDNT: true,
+          // Avoids sending pageview hits from custom paths
+          // exclude: ["/preview/**", "/do-not-track/me/too/"],
+          // Defaults to https://www.googletagmanager.com
+          // origin: "YOUR_SELF_HOSTED_ORIGIN",
+        },
+      },
+    },
+    `gatsby-plugin-advanced-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

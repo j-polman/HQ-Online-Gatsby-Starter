@@ -1,16 +1,15 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import Container from "../components/Container";
+import Seo from "../components/SEO";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const PageTwo = () => {
 
-const SecondPage = () => (
-  <Layout>
-    <Seo title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+    return(
+        <Container styles={`py-12`}>
+        <Seo title="Pagina 2" />
+        [PAGE 2]
+      </Container>
+    )
+}
 
-export default SecondPage
+export default PageTwo;
