@@ -5,6 +5,11 @@ import React from 'react'
 // import "@fontsource/[DESIRED_FONT]"; This defaults to 400 font-weight
 // For other font-weights import "@fontsource/[DESIRED_FONT]/[FW_NUMBER].css";
 
+import "@fontsource/poppins"
+import "@fontsource/poppins/300.css"
+import "@fontsource/poppins/500.css"
+import "@fontsource/poppins/600.css"
+
 import './src/style/style.css'
 import Layout from './src/components/Layout'
 

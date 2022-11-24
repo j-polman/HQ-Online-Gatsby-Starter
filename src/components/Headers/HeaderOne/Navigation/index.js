@@ -27,7 +27,7 @@ const NavigationOne = ({menuState, deviceWidth, menuHandler}) => {
 
     const menu = data.wpMenu.menuItems.nodes.map((item)=>(
         item.parentDatabaseId === 0 ?
-            <li className={`lg:ml-10 lg:mt-0 mt-4 text-black lg:text-base text-lg py-5 relative item`}>
+            <li className={`mx-5 lg:mt-0 mt-4 text-white lg:text-base text-lg py-5 relative item`}>
                 <Link to={item.url} className={`py-5`} onClick={menuHandler} >
                     {item.label}
                     {item.childItems.nodes.length > 0 ? 
@@ -59,10 +59,10 @@ const NavigationOne = ({menuState, deviceWidth, menuHandler}) => {
         
     return(
         <>
-            <div className={`w-3/4 flex flex-row lg:justify-end justify-start transition-all duration-200 ease-in-out lg:overflow-visible overflow-hidden lg:relative fixed lg:bg-transparent top-0 lg:h-auto h-screen z-10  ${menuState && deviceWidth < 800 ? `left-0` : deviceWidth < 800 ? `-left-full` : ``}`}>
-                <ul className="flex lg:flex-row flex-col w-full lg:items-start items-start lg:justify-end justify-start lg:pt-0 pt-28 lg:px-0 px-8 bg-white">{menu}</ul>
+            <div className={`w-3/5 flex flex-row lg:justify-center justify-start transition-all duration-200 ease-in-out lg:overflow-visible overflow-hidden lg:relative fixed lg:bg-transparent top-0 lg:h-auto h-screen z-10  ${menuState && deviceWidth < 800 ? `left-0` : deviceWidth < 800 ? `-left-full` : ``}`}>
+                <ul className="flex lg:flex-row flex-col w-full lg:items-start items-start lg:justify-center justify-start lg:pt-0 pt-28 lg:px-0 px-8">{menu}</ul>
             </div>
-            <div onClick={menuHandler} className={`h-screen w-screen bg-overlay z-0 transition-all ease-in duration-200 fixed ${menuState && deviceWidth < 800 ? `opacity-100` : `opacity-0`} `}></div>
+            {/* <div onClick={menuHandler} className={`h-screen w-screen bg-overlay z-0 transition-all ease-in duration-200 fixed ${menuState && deviceWidth < 800 ? `opacity-100` : `opacity-0`} `}></div> */}
         </>
     )
 }

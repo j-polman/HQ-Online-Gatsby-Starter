@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
-        url: `https://server2.webdesignhq.shockmedia.nl/~gatsbystarter/graphql`,
+        url: `https://server1.webdesignhq.shockmedia.nl/~flexibilistay/graphql`,
         schema: {
           typePrefix: 'Wp',
           perPage: 20,
